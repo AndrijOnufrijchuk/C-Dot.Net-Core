@@ -1,0 +1,12 @@
+C:\Users\DellUser\source\repos\University\BusinessLogicLayer\bin\Debug\netcoreapp3.1\BusinessLogicLayer.deps.json
+C:\Users\DellUser\source\repos\University\BusinessLogicLayer\bin\Debug\netcoreapp3.1\BusinessLogicLayer.dll
+C:\Users\DellUser\source\repos\University\BusinessLogicLayer\bin\Debug\netcoreapp3.1\BusinessLogicLayer.pdb
+C:\Users\DellUser\source\repos\University\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.csprojAssemblyReference.cache
+C:\Users\DellUser\source\repos\University\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.AssemblyInfoInputs.cache
+C:\Users\DellUser\source\repos\University\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.AssemblyInfo.cs
+C:\Users\DellUser\source\repos\University\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.dll
+C:\Users\DellUser\source\repos\University\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.pdb
+C:\Users\DellUser\source\repos\University\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\DellUser\source\repos\University\BusinessLogicLayer\bin\Debug\netcoreapp3.1\DataAccessLayer.dll
+C:\Users\DellUser\source\repos\University\BusinessLogicLayer\bin\Debug\netcoreapp3.1\DataAccessLayer.pdb
+C:\Users\DellUser\source\repos\University\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.csproj.CopyComplete
