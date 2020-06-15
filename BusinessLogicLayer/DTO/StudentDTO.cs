@@ -1,13 +1,21 @@
-﻿using System;
+﻿using BusinessLogicLayer.validators;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace BusinessLogicLayer.DTO
 {
-   public class StudentDTO
+
+    [FluentValidation.Attributes.Validator(typeof(StudentValidator))]
+    public class StudentDTO
     {
-        public int id { get; set; }
+     
         public string name { get; set; }
+        [Required]
+
+        [Range(0, 1000)]
         public int GroupId { get; set; }
+    
     }
-}
+    }

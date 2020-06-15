@@ -1,0 +1,117 @@
+﻿@using System.Net.Http;
+@using BusinessLogicLayer.DTO
+@using BusinessLogicLayer.Interfaces.services;
+@using System.Net.Http.Formatting;
+@using Newtonsoft.Json;
+@using System.Text.Json;
+@using BusinessLogicLayer.validators;
+@page "/api/Group"
+@page "/api/Group/{id}"
+@using Microsoft.AspNetCore.Components;
+@inject IEFGroupService groupService;
+
+
+
+
+
+<h1>Groups</h1>
+
+
+<hr />
+
+@if (groupList.Any())
+{
+    <div class="card-deck">
+        @foreach (var group in groupList)
+        {
+            <div>
+                <p><strong>group_number</strong> @group.group_number</p>
+                <p><strong>id</strong> @group.id</p>
+
+
+                <button> <a class="btn btn-danger btn-sm" @onclick="@(() => DeleteGroup(group.id))">del</a> </button>
+            </div>
+
+
+        }
+    </div>
+
+
+    <br />
+
+}
+else
+{
+    <p>No Contacts Found</p>
+}
+
+
+<div class="modal-body">
+    <EditForm Model="@groupDTO" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group">
+            <label for="taskName">Group number</label>
+
+            <InputNumber class="form-control" @bind-Value="@groupDTO.group_number" />
+
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </EditForm>
+</div>
+
+
+
+
+
+
+
+@code {
+
+
+
+    @functions {
+        private List<DataAccessLayer.Entities.Group> groupList = new List<DataAccessLayer.Entities.Group>();
+
+        protected override async Task OnInitializedAsync() => await GetGroups();
+
+        HttpClient httpClient = new HttpClient();
+
+
+        private async Task GetGroups() => groupList = await httpClient.GetJsonAsync<List<DataAccessLayer.Entities.Group>>("https://localhost:44341/check");
+        // DataAccessLayer.Entities.Group group = new DataAccessLayer.Entities.Group();
+        private async void DeleteGroup(int id)
+        {
+            string baseUrl = "https://localhost:44341";
+            string endpoint = $"{baseUrl}/api/Group/{id}";
+
+            //await httpClient.SendJsonAsync(HttpMethod.Delete, endpoint,);
+            await httpClient.DeleteAsync(endpoint);
+        }
+
+        GroupDTO groupDTO { get; set; } = new GroupDTO();
+
+
+        private async void HandleValidSubmit()
+        {
+
+
+
+            GroupValidator groupValidator = new GroupValidator();
+            if (groupValidator.Validate(groupDTO).IsValid)
+            {
+                await groupService.AddGroup(groupDTO);
+
+            }
+
+
+
+        }
+
+
+
+    }
+}

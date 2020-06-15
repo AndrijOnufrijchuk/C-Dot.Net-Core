@@ -13,8 +13,12 @@ namespace DataAccessLayer.DbContext1
         {
 
         }
-        DbSet<Student> Students { get; set; }
-        DbSet<Group> Groups { get; set; }
+        public MyDbContext()
+        {
+
+        }
+      public  DbSet<Student> Students { get; set; }
+        public DbSet<Group> Groups { get; set; }
 
 
 

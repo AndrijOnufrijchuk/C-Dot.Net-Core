@@ -1,6 +1,7 @@
 ﻿using BusinessLogicLayer.DTO;
 using BusinessLogicLayer.Interfaces.services;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace University.controllers
@@ -19,11 +20,26 @@ namespace University.controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetView()
         {
-            try { return Ok(await groupService.GetAllGroups()); }
+            try {
+               
+                return View();
+            }
             catch { return StatusCode(404); }
         }
+
+        [HttpGet("/check")]
+        public async Task<IActionResult> GetJson()
+        {
+            try
+            {
+                
+                return Ok(await groupService.GetAllGroups());
+            }
+            catch { return StatusCode(404); }
+        }
+
 
         [HttpGet("id/{id}")]
         public async Task<IActionResult> Get(int Id)
@@ -38,7 +54,7 @@ namespace University.controllers
             try
             {
                 await groupService.DeleteGroup(Id);
-                return StatusCode(204);
+                return StatusCode(200);
             }
             catch
             { return StatusCode(404); }
@@ -65,10 +81,18 @@ namespace University.controllers
                 return StatusCode(201);
             }
             catch
-            { return StatusCode(404); }
+            {
+               
+                return StatusCode(404);
+                
+            }
         }
 
-       
+        public ActionResult Index()
+        {
+            return View();
+        }
+
 
 
 

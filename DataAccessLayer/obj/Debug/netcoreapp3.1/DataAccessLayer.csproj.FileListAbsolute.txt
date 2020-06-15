@@ -4,6 +4,6 @@ C:\Users\DellUser\source\repos\University\DataAccessLayer\obj\Debug\netcoreapp3.
 C:\Users\DellUser\source\repos\University\DataAccessLayer\obj\Debug\netcoreapp3.1\DataAccessLayer.AssemblyInfoInputs.cache
 C:\Users\DellUser\source\repos\University\DataAccessLayer\obj\Debug\netcoreapp3.1\DataAccessLayer.AssemblyInfo.cs
 C:\Users\DellUser\source\repos\University\DataAccessLayer\bin\Debug\netcoreapp3.1\DataAccessLayer.pdb
-C:\Users\DellUser\source\repos\University\DataAccessLayer\obj\Debug\netcoreapp3.1\DataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\DellUser\source\repos\University\DataAccessLayer\obj\Debug\netcoreapp3.1\DataAccessLayer.dll
 C:\Users\DellUser\source\repos\University\DataAccessLayer\obj\Debug\netcoreapp3.1\DataAccessLayer.pdb
+C:\Users\DellUser\source\repos\University\DataAccessLayer\obj\Debug\netcoreapp3.1\DataAccessLayer.csproj.CoreCompileInputs.cache

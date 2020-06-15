@@ -14,6 +14,10 @@ using BusinessLogicLayer.services;
 using BusinessLogicLayer.Interfaces.services;
 using AutoMapper;
 using BusinessLogicLayer.DTO;
+using FluentValidation.AspNetCore;
+using BusinessLogicLayer.validators;
+using FluentValidation;
+using Microsoft.AspNetCore.Mvc.Razor;
 
 namespace University
 {
@@ -29,6 +33,7 @@ namespace University
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddDbContext<MyDbContext>(cfg =>
             {
                 cfg.UseSqlServer(Configuration.GetConnectionString("Default"),
@@ -48,13 +53,27 @@ namespace University
 
             services.AddTransient<IEFGroupService, EFGroupService>();
             services.AddTransient<IEFStudentService, EFStudentService>();
+            services.AddTransient<IValidator<StudentDTO>, StudentValidator>();
+            services.AddTransient<IValidator<GroupDTO>, GroupValidator>();
+        //    services.AddRazorPages();
+            services.AddServerSideBlazor();
             services.AddControllersWithViews();
-            services.AddMvc();
+            services.Configure<RazorViewEngineOptions>(o =>
+            {
+                // {2} is area, {1} is controller,{0} is the action    
+                o.ViewLocationFormats.Clear();
+                o.ViewLocationFormats.Add("UI/Pages/{0}" + RazorViewEngine.ViewExtension);
+            });       
+    
+        services.AddControllersWithViews();
+            services.AddMvc(setup => {
+                //...mvc setup...
+            }).AddFluentValidation();
 
 
         }
 
-
+        
          
          
 
@@ -71,13 +90,16 @@ namespace University
             app.UseStaticFiles();//
 
             app.UseRouting();
-
+            //app.UseCors(MyAllowSpecificOrigins);
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                     );
+                endpoints.MapDefaultControllerRoute();
+                endpoints.MapBlazorHub();
+                endpoints.MapRazorPages();
             });
         }
     }
