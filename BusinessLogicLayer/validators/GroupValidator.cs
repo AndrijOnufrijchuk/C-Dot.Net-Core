@@ -11,7 +11,7 @@ namespace BusinessLogicLayer.validators
         public GroupValidator()
         {
             
-            RuleFor(x => x.group_number).NotNull().GreaterThanOrEqualTo(1).WithMessage("Greater than 0 ");
+            RuleFor(x => x.group_number).NotNull().GreaterThanOrEqualTo(1).WithMessage("The group_number field must be a number. ");
         }
     }
 }

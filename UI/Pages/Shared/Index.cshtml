@@ -1,0 +1,37 @@
+﻿@page
+@model UI.Pages.Component
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDoList</title>
+    <base href="~/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <app>
+        @(await Html.RenderComponentAsync<UI.Pages.Component> (RenderMode.ServerPrerendered))
+    </app>
+
+    <div id="blazor-error-ui">
+        <environment include="Staging,Production">
+            Staging / Production error handled
+        </environment>
+        <environment include="Development">
+            Development error handled
+        </environment>
+        <a href="index" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="_framework/blazor.server.js"></script>
+</body>
+</html>
+

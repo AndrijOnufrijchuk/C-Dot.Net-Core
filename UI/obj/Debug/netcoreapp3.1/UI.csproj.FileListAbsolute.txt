@@ -91,3 +91,6 @@ C:\Users\DellUser\source\repos\University\UI\obj\Debug\netcoreapp3.1\UI.RazorAss
 C:\Users\DellUser\source\repos\University\UI\obj\Debug\netcoreapp3.1\UI.RazorTargetAssemblyInfo.cs
 C:\Users\DellUser\source\repos\University\UI\obj\Debug\netcoreapp3.1\UI.Views.pdb
 C:\Users\DellUser\source\repos\University\UI\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\GetView.cshtml.g.cs
+C:\Users\DellUser\source\repos\University\UI\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Component.razor.g.cs
+C:\Users\DellUser\source\repos\University\UI\obj\Debug\netcoreapp3.1\Razor\Pages\Component.razor.g.cs
+C:\Users\DellUser\source\repos\University\UI\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\Index.cshtml.g.cs

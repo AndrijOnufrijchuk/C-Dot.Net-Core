@@ -129,7 +129,6 @@ C:\Users\DellUser\source\repos\University\University\bin\Debug\netcoreapp3.1\Bus
 C:\Users\DellUser\source\repos\University\University\bin\Debug\netcoreapp3.1\DataAccessLayer.pdb
 C:\Users\DellUser\source\repos\University\University\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\DellUser\source\repos\University\University\bin\Debug\netcoreapp3.1\University.Views.dll
-C:\Users\DellUser\source\repos\University\University\bin\Debug\netcoreapp3.1\University.Views.pdb
 C:\Users\DellUser\source\repos\University\University\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\DellUser\source\repos\University\University\bin\Debug\netcoreapp3.1\FluentValidation.dll
 C:\Users\DellUser\source\repos\University\University\bin\Debug\netcoreapp3.1\FluentValidation.WebApi.dll

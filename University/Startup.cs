@@ -58,6 +58,7 @@ namespace University
         //    services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddControllersWithViews();
+
             services.Configure<RazorViewEngineOptions>(o =>
             {
                 // {2} is area, {1} is controller,{0} is the action    
@@ -67,7 +68,7 @@ namespace University
     
         services.AddControllersWithViews();
             services.AddMvc(setup => {
-                //...mvc setup...
+                
             }).AddFluentValidation();
 
 

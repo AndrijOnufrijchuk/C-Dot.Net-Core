@@ -43,28 +43,26 @@
 
 
 }
+
+
+
+
+<br />
+
+
+
+@if (pageNum == 0)
+{
+    <label bind="nav">@pageNum</label>
+    <button> <a class="btn btn-danger btn-sm" @onclick="@(() => UpdateCurrentCounterValue())">Next page</a> </button>
+}
 else
 {
-    <p>No Contacts Found</p>
+    <label bind="nav">@pageNum</label>
+    <button> <a class="btn btn-danger btn-sm" @onclick="@(() => UpdateCurrentCounterValue())">Next page</a> </button>
+   
+    
 }
-
-
-<div class="modal-body">
-    <EditForm Model="@groupDTO" OnValidSubmit="@HandleValidSubmit">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
-
-        <div class="form-group">
-            <label for="taskName">Group number</label>
-
-            <InputNumber class="form-control" @bind-Value="@groupDTO.group_number" />
-
-        </div>
-
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </EditForm>
-</div>
 
 
 
@@ -78,12 +76,33 @@ else
         private List<DataAccessLayer.Entities.Group> groupList = new List<DataAccessLayer.Entities.Group>();
 
 
+
+        public int pageNum { get; set; }
+        public int a = 0;
+        IEnumerable<DataAccessLayer.Entities.Group> groupsPerPages { get; set; }
+      
+      async  void UpdateCurrentCounterValue()
+        {
+            if (pageNum == 0)
+            {
+                pageNum = pageNum + 2;
+                groupList = await httpClient.GetJsonAsync<List<DataAccessLayer.Entities.Group>>("https://localhost:44341/check2?page=" + pageNum);
+            }
+            else
+            {
+                pageNum++;
+                groupList = await httpClient.GetJsonAsync<List<DataAccessLayer.Entities.Group>>("https://localhost:44341/check2?page=" + pageNum);
+            }
+        }
+
         protected override async Task OnInitializedAsync() => await GetGroups();
 
         HttpClient httpClient = new HttpClient();
 
-        public int pageNum = 1;
-        private async Task GetGroups() => groupList = await httpClient.GetJsonAsync<List<DataAccessLayer.Entities.Group>>("https://localhost:44341/check");
+
+
+        private async Task GetGroups() =>
+            groupList = await httpClient.GetJsonAsync<List<DataAccessLayer.Entities.Group>>("https://localhost:44341/check2?page=@pageNum");
         // DataAccessLayer.Entities.Group group = new DataAccessLayer.Entities.Group();
 
 
@@ -100,21 +119,7 @@ else
         GroupDTO groupDTO { get; set; } = new GroupDTO();
 
 
-        private async void HandleValidSubmit()
-        {
 
-
-
-            GroupValidator groupValidator = new GroupValidator();
-            if (groupValidator.Validate(groupDTO).IsValid)
-            {
-                await groupService.AddGroup(groupDTO);
-
-            }
-
-
-
-        }
 
 
 
